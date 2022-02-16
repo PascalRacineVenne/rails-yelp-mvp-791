@@ -1,4 +1,5 @@
 <div class="container">
+  <%= link_to 'Create Your Restaurant', new_restaurant_path %>
   <ul>
     <% @restaurants.each do |restaurant| %>
       <li><%= restaurant.name %></li>
