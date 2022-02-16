@@ -1,8 +1,8 @@
 <div class="container">
-  <%= link_to 'Create Your Restaurant', new_restaurant_path %>
+  <%= link_to 'Create Your Restaurant', new_restaurant_path, class: 'btn btn-primary'%>
   <ul>
     <% @restaurants.each do |restaurant| %>
-      <li><%= restaurant.name %></li>
+      <li><%= link_to restaurant.name, restaurant_path(restaurant) %></li>
     <% end %>
   </ul>
 </div>

@@ -1,5 +1,5 @@
 <div class="container">
-<h1><%= @restaurant.id %></h1>
+  <h1><%= @restaurant.id %></h1>
   <h3><%=  @restaurant.name %></h3>
   <div class="details">
     <h5><%=  @restaurant.address %></h5>
@@ -7,19 +7,11 @@
     <p><%=  @restaurant.category %></p>
   </div>
   <div class="reviews">
-    <%# @restaurant.reviews each do |review| %>
-      <p><%#= review.rating %></p>
-      <p><%#= review.content %></p>
-    <%# end %>
-  </div>
-  <div class="review-form">
-    <%= form_for [@restaurant, @review] do |f| %>
-      <%= f.label :rating %>
-      <%= f.select :rating, [['0', 0], ['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]] %>
-      <%= f.label :content %>
-      <%= f.text_area :content %>
-      <%= f.submit class: "btn btn-primary" %>
+    <% @restaurant.reviews.each do |review| %>
+      <p><%= review.rating %></p>
+      <p><%= review.content %></p>
     <% end %>
   </div>
+  <%= link_to 'Leave a review', new_restaurant_review_path(@restaurant) %>
   <%= link_to 'Back to list', restaurants_path %>
 </div>
